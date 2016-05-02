@@ -1,16 +1,25 @@
 $(function () {
-  for (let num = 1; num <= 100; num++) {
+  $('#maxcount').on('keyup', function (e) {
+    if (e.keyCode === 13) {
+      showValues($(this).val())
+    }
+  })
+})
+
+function showValues(max) {
+  $('.display p').remove()
+  for (let num = 1; num <= max; num++) {
     if (num % 3 === 0 && num % 5 === 0) {
-      $('.container').append('<p class="fizzbuzz">FizzBuzz<p>')
+      $('.display').append('<p class="fizzbuzz">FizzBuzz<p>')
     }
     else if (num % 3 === 0) {
-      $('.container').append('<p class="fizz">Fizz</p>')
+      $('.display').append('<p class="fizz">Fizz</p>')
     }
     else if (num % 5 === 0) {
-      $('.container').append('<p class="buzz">Buzz</p>')
+      $('.display').append('<p class="buzz">Buzz</p>')
     }
     else {
-      $('.container').append(`<p class="neither">${num}</p>`)
+      $('.display').append(`<p class="neither">${num}</p>`)
     }
   }
-})
+}
