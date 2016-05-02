@@ -7,6 +7,8 @@ $(function () {
 })
 
 function showValues(max) {
+  max = parseInt(max)
+  if (isNaN(max)) { return }
   $('.display p').remove()
   for (let num = 1; num <= max; num++) {
     if (num % 3 === 0 && num % 5 === 0) {
